@@ -30,6 +30,7 @@ namespace Servicos
                 };
 
                 conta.NumeroChassis = 1;
+                conta.Tipo= TipoVeiculo.MotosTriciclo;
                 Console.WriteLine($"O numero do Chassis será: {conta.NumeroChassis}");
                 Console.Write("Entre com a data de fabricação :");
                 conta.DataFabricacao = Console.ReadLine();
@@ -42,6 +43,7 @@ namespace Servicos
                 Console.WriteLine("Entre com a cor:");
                 conta.Cor=Console.ReadLine();
                 Console.ReadLine();
+                
 
                 BancoDeDados.Veiculos.Add(conta);
 
@@ -68,7 +70,8 @@ namespace Servicos
              listaDeVeiculos = BancoDeDados.Veiculos;
 
                 foreach (var conta in listaDeVeiculos.Where(contas => contas.Tipo == TipoVeiculo.MotosTriciclo))
-             Console.WriteLine(conta.Nome);        
+             Console.WriteLine($"Este é o nome: {conta.Nome}");  
+                 
         }
         public void DeletarVeiculo(){
 
