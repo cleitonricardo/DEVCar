@@ -1,4 +1,5 @@
-﻿
+﻿using Servicos;
+using Banco.Db;
 namespace DEVCar
 {
     class Program
@@ -7,20 +8,32 @@ namespace DEVCar
         static void Main(string[] args)
         {
             string? opcao="0";
-            
-            while (opcao != "6")
+            int NumeroChassis=0;
+            uint Numero=1;
+
+            while (opcao != "9")
             { 
+
+                NumeroChassis= BancoDeDados.Veiculos.Count;
+                if (BancoDeDados.Veiculos.Count >0)
+                {
+                    Numero =BancoDeDados.Veiculos.Last().NumeroChassis +1;
+                }
+
                 string? escolha="0";
                 Console.Clear();
                 Console.WriteLine("____________DEVCar____________");
                 Console.WriteLine("ESCOLHA UMA DAS OPÇÕES ABAIXO");
-                Console.WriteLine("1-Listar todos os carros");
-                Console.WriteLine("2-Carros disponiveis");
-                Console.WriteLine("3-Carros vendidos");
-                Console.WriteLine("4-Carro vendido com o maior preço");
-                Console.WriteLine("5-Carro vendido com o menor preço");
-                Console.WriteLine("6-Sair");
-
+                Console.WriteLine("1-Cadastrar Novo Veiculo");
+                Console.WriteLine("2-Deletar Veiculo");
+                Console.WriteLine("3-Atualizar Veiculo");
+                Console.WriteLine("4-Listar todos os carros");
+                Console.WriteLine("5-Carros disponiveis");
+                Console.WriteLine("6-Carros vendidos");
+                Console.WriteLine("7-Carro vendido com o maior preço");
+                Console.WriteLine("8-Carro vendido com o menor preço");
+                Console.WriteLine("9-Sair");
+                Console.WriteLine("O que você deseja:");
                 opcao=Console.ReadLine();
 
                 switch(opcao)
@@ -44,10 +57,28 @@ namespace DEVCar
                     case "3":
                     break;
                     case "4":
+                    Console.Clear();
+                    if (BancoDeDados.Veiculos.Count >0)
+                    {
+                        try
+                        {
+                            VeiculoServicos.ListarVeiculos();
+                        }
+                        catch(FormatException)
+                        {
+
+                        }
+                    }
                     break;
                     case "5":
                     break;
                     case "6":
+                    break;
+                    case "7":
+                    break;
+                    case "8":
+                    break;
+                    case "9":
                     Console.Clear();
                     break;
                 }
