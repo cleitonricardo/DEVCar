@@ -10,6 +10,7 @@ namespace DEVCar
             string? opcao="0";
             int NumeroChassis=0;
             uint Numero=1;
+            VeiculoServicos veiculos = new VeiculoServicos();
 
             while (opcao != "9")
             { 
@@ -20,8 +21,9 @@ namespace DEVCar
                     Numero =BancoDeDados.Veiculos.Last().NumeroChassis +1;
                 }
 
-                string? escolha="0";
+                
                 Console.Clear();
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("____________DEVCar____________");
                 Console.WriteLine("ESCOLHA UMA DAS OPÇÕES ABAIXO");
                 Console.WriteLine("1-Cadastrar Novo Veiculo");
@@ -39,22 +41,37 @@ namespace DEVCar
                 switch(opcao)
                 {
                     case "1":
-                       
-                        while(escolha!="5"){
-                        Console.Clear();
-                        Console.WriteLine("Selecione o tipo do Veiculo:");
-                        Console.WriteLine("1-Motos/Triciclo");
-                        Console.WriteLine("2-Carros");
-                        Console.WriteLine("3-Camionete");
-                        Console.WriteLine("4-Todos");
-                        Console.WriteLine("5-Voltar");
-                        escolha=Console.ReadLine();
-                        }
-
+                       veiculos.CadastrarVeiculo();
                     break;
                     case "2":
+                    Console.Clear();
+                    if (BancoDeDados.Veiculos.Count >0){
+                        try{
+                            veiculos.DeletarVeiculo();
+                        }
+                        catch(FormatException){
+                            Console.WriteLine("Formato não aceito. Tente novamente",
+                            Console.ForegroundColor = ConsoleColor.Red);
+                        }
+                    }else{
+                        Console.WriteLine("Não existe Veiculos cadastrado", Console.ForegroundColor=ConsoleColor.Red);
+                    }
+                    Console.Read();
                     break;
                     case "3":
+                    Console.Clear();
+                    if (BancoDeDados.Veiculos.Count >0){
+                        try{
+                            veiculos.AtualizarVeiculo();
+                        }
+                        catch(FormatException){
+                            Console.WriteLine("Formato não aceito. Tente novamente",
+                            Console.ForegroundColor = ConsoleColor.Red);
+                        }
+                    }else{
+                        Console.WriteLine("Não existe Veiculos cadastrado", Console.ForegroundColor=ConsoleColor.Red);
+                    }
+                    Console.Read();
                     break;
                     case "4":
                     Console.Clear();
@@ -62,13 +79,18 @@ namespace DEVCar
                     {
                         try
                         {
-                            VeiculoServicos.ListarVeiculos();
+                            veiculos.ListarVeiculos();
+
                         }
                         catch(FormatException)
                         {
-
+                            Console.WriteLine("Formato não aceito. Tente novamente",
+                            Console.ForegroundColor = ConsoleColor.Red);
                         }
+                    }else{
+                        Console.WriteLine("Não existe Veiculos cadastrado", Console.ForegroundColor=ConsoleColor.Red);
                     }
+                    Console.Read();
                     break;
                     case "5":
                     break;

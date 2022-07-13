@@ -1,7 +1,7 @@
 namespace Entidades
 {
 
-    public class Carros
+    public class Carros: Veiculos
     {
         public int Portas{get;set;}
         public string? Combustivel{get;set;}
