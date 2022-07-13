@@ -32,16 +32,21 @@ namespace Servicos
                 conta.NumeroChassis = 1;
                 conta.Tipo= TipoVeiculo.MotosTriciclo;
                 Console.WriteLine($"O numero do Chassis será: {conta.NumeroChassis}");
-                Console.Write("Entre com a data de fabricação :");
+                Console.WriteLine("Entre com a data de fabricação :");
                 conta.DataFabricacao = Console.ReadLine();
+                CompradorServicos.ValidaString(conta.DataFabricacao);
                 Console.WriteLine("Entre com o Nome :");
                 conta.Nome =Console.ReadLine();
+                CompradorServicos.ValidaString(conta.Nome);
                 Console.WriteLine("Entre com a Placa:");
-                conta.Placa =Convert.ToUInt32(Console.ReadLine());
+                conta.Placa =Console.ReadLine();
+                CompradorServicos.ValidaString(conta.Placa);
                 Console.WriteLine("Entre com o CPF do Comprador");
-                conta.CPF= Convert.ToUInt32(Console.ReadLine());
+                conta.CPF= Console.ReadLine();
+                CompradorServicos.ValidaCPF(conta.CPF);
                 Console.WriteLine("Entre com a cor:");
                 conta.Cor=Console.ReadLine();
+                CompradorServicos.ValidaString(conta.Cor);
                 Console.ReadLine();
                 
 
@@ -53,6 +58,12 @@ namespace Servicos
             {
                 Console.WriteLine("\nFormato não aceito. Tente novamente",
                 Console.ForegroundColor = ConsoleColor.Red);
+            }
+            catch(Exception error)
+            {
+                Console.WriteLine($"{error.Message}",
+                    Console.ForegroundColor = ConsoleColor.Red);
+                    Console.Read();
             }
         
         }

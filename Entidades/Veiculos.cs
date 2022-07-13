@@ -8,9 +8,9 @@ namespace Entidades
         public uint NumeroChassis {get;set;}
         public string? DataFabricacao {get;set;}
         public string? Nome {get;set;}
-        public uint Placa {get;set;}
+        public string? Placa {get;set;}
         public uint Valor {get;set;}
-        public uint CPF {get;set;}
+        public string? CPF {get;set;}
         public string? Cor {get;set;}
         public TipoVeiculo Tipo {get; set;}
 

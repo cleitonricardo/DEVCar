@@ -8,9 +8,9 @@ namespace Interfaces
          uint NumeroChassis {get;set;}
          string? DataFabricacao {get;set;}
         string? Nome {get;set;}
-        uint Placa {get;set;}
+        string? Placa {get;set;}
          uint Valor {get;set;}
-         uint CPF {get;set;}
+         string? CPF {get;set;}
         string? Cor {get;set;}
          TipoVeiculo Tipo {get; set;}
 
