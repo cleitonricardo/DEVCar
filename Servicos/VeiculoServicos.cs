@@ -26,11 +26,10 @@ namespace Servicos
                     "1" => new MotosTriciclo(),
                     "2" => new Carros(),
                     "3" => new Camionete(),
-                    _   => throw new Exception("\n1Opção inválida. Tente novamente.")
+                    _   => throw new Exception("\nOpção inválida. Tente novamente.")
                 };
-
-                conta.NumeroChassis = 1;
-                conta.Tipo= TipoVeiculo.MotosTriciclo;
+                conta.Tipo =(TipoVeiculo)Convert.ToInt32(escolha);
+                conta.NumeroChassis = 1;  
                 Console.WriteLine($"O numero do Chassis será: {conta.NumeroChassis}");
                 Console.WriteLine("Entre com a data de fabricação :");
                 conta.DataFabricacao = Console.ReadLine();
@@ -78,11 +77,31 @@ namespace Servicos
                 listaDeVeiculos.Add(conta);
              }
 
+                
              listaDeVeiculos = BancoDeDados.Veiculos;
 
+                Console.WriteLine("Lista Completa de Veiculos: ");
+
+                if(listaDeVeiculos.Where(contas=>contas.Tipo == TipoVeiculo.MotosTriciclo).ToList().Count>0)
+                {
+                Console.WriteLine("Lista de Motos/Triciclos:");
                 foreach (var conta in listaDeVeiculos.Where(contas => contas.Tipo == TipoVeiculo.MotosTriciclo))
              Console.WriteLine($"Este é o nome: {conta.Nome}");  
-                 
+             }
+
+             if(listaDeVeiculos.Where(contas=>contas.Tipo == TipoVeiculo.Carro).ToList().Count>0)
+                {
+                    Console.WriteLine("Lista de Carros:");
+                    foreach (var conta in listaDeVeiculos.Where(contas => contas.Tipo == TipoVeiculo.Carro))
+             Console.WriteLine($"Este é o nome: {conta.Nome}");
+                }
+
+            if(listaDeVeiculos.Where(contas=>contas.Tipo == TipoVeiculo.Camionete).ToList().Count>0)
+                {
+                    Console.WriteLine("Lista de Camionete:");
+             foreach (var conta in listaDeVeiculos.Where(contas => contas.Tipo == TipoVeiculo.Camionete))
+             Console.WriteLine($"Este é o nome: {conta.Nome}");
+                }
         }
         public void DeletarVeiculo(){
 

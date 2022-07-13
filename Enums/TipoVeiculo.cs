@@ -2,8 +2,8 @@ namespace Enums
 {
     public enum TipoVeiculo
     {
-        MotosTriciclo = 2,
-        Carro ,
-        Camionete 
+        MotosTriciclo = 1,
+        Carro = 2 ,
+        Camionete = 3 
     }
 }
