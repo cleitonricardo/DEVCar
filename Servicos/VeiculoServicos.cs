@@ -8,7 +8,7 @@ namespace Servicos
     {
         public void CadastrarVeiculo()
         {
-                Veiculos conta;
+                Veiculos veiculo;
             
             try
             {
@@ -20,7 +20,7 @@ namespace Servicos
                 Console.WriteLine("3-Camionete");
                 string? escolha =Console.ReadLine();
 
-                conta=escolha switch
+                veiculo=escolha switch
                 
                 {
                     "1" => new MotosTriciclo(),
@@ -28,28 +28,28 @@ namespace Servicos
                     "3" => new Camionete(),
                     _   => throw new Exception("\nOpção inválida. Tente novamente.")
                 };
-                conta.Tipo =(TipoVeiculo)Convert.ToInt32(escolha);
-                conta.NumeroChassis = 1;  
-                Console.WriteLine($"O numero do Chassis será: {conta.NumeroChassis}");
+                veiculo.Tipo =(TipoVeiculo)Convert.ToInt32(escolha);
+                veiculo.NumeroChassis = 1;  
+                Console.WriteLine($"O numero do Chassis será: {veiculo.NumeroChassis}");
                 Console.WriteLine("Entre com a data de fabricação :");
-                conta.DataFabricacao = Console.ReadLine();
-                CompradorServicos.ValidaString(conta.DataFabricacao);
+                veiculo.DataFabricacao = Console.ReadLine();
+                CompradorServicos.ValidaString(veiculo.DataFabricacao);
                 Console.WriteLine("Entre com o Nome :");
-                conta.Nome =Console.ReadLine();
-                CompradorServicos.ValidaString(conta.Nome);
+                veiculo.Nome =Console.ReadLine();
+                CompradorServicos.ValidaString(veiculo.Nome);
                 Console.WriteLine("Entre com a Placa:");
-                conta.Placa =Console.ReadLine();
-                CompradorServicos.ValidaString(conta.Placa);
+                veiculo.Placa =Console.ReadLine();
+                CompradorServicos.ValidaString(veiculo.Placa);
                 
-                conta.CPF= "00000000000";
+                veiculo.CPF= "00000000000";
                 
                 Console.WriteLine("Entre com a cor:");
-                conta.Cor=Console.ReadLine();
-                CompradorServicos.ValidaString(conta.Cor);
+                veiculo.Cor=Console.ReadLine();
+                CompradorServicos.ValidaString(veiculo.Cor);
                 Console.ReadLine();
                 
 
-                BancoDeDados.Veiculos.Add(conta);
+                BancoDeDados.Veiculos.Add(veiculo);
 
               
 
@@ -71,10 +71,10 @@ namespace Servicos
 
              List<Veiculos> listaDeVeiculos =new();
 
-             foreach (var conta in BancoDeDados.Veiculos)
+             foreach (var veiculo in BancoDeDados.Veiculos)
              {
                
-                listaDeVeiculos.Add(conta);
+                listaDeVeiculos.Add(veiculo);
              }
 
                 
@@ -82,32 +82,32 @@ namespace Servicos
 
                 Console.WriteLine("Lista Completa de Veiculos: ");
 
-                if(listaDeVeiculos.Where(contas=>contas.Tipo == TipoVeiculo.MotosTriciclo).ToList().Count>0)
+                if(listaDeVeiculos.Where(veiculos=>veiculos.Tipo == TipoVeiculo.MotosTriciclo).ToList().Count>0)
                 {
                 Console.WriteLine("Lista de Motos/Triciclos:");
-                foreach (var conta in listaDeVeiculos.Where(contas => contas.Tipo == TipoVeiculo.MotosTriciclo))
-             Console.WriteLine($"Este é o nome: {conta.Nome}");  
+                foreach (var veiculo in listaDeVeiculos.Where(veiculos => veiculos.Tipo == TipoVeiculo.MotosTriciclo))
+             Console.WriteLine($"Este é o nome: {veiculo.Nome}");  
              }
 
-             if(listaDeVeiculos.Where(contas=>contas.Tipo == TipoVeiculo.Carro).ToList().Count>0)
+             if(listaDeVeiculos.Where(veiculos=>veiculos.Tipo == TipoVeiculo.Carro).ToList().Count>0)
                 {
                     Console.WriteLine("Lista de Carros:");
-                    foreach (var conta in listaDeVeiculos.Where(contas => contas.Tipo == TipoVeiculo.Carro))
-             Console.WriteLine($"Este é o nome: {conta.Nome}");
+                    foreach (var veiculo in listaDeVeiculos.Where(veiculos => veiculos.Tipo == TipoVeiculo.Carro))
+             Console.WriteLine($"Este é o nome: {veiculo.Nome}");
                 }
 
-            if(listaDeVeiculos.Where(contas=>contas.Tipo == TipoVeiculo.Camionete).ToList().Count>0)
+            if(listaDeVeiculos.Where(veiculos=>veiculos.Tipo == TipoVeiculo.Camionete).ToList().Count>0)
                 {
                     Console.WriteLine("Lista de Camionete:");
-             foreach (var conta in listaDeVeiculos.Where(contas => contas.Tipo == TipoVeiculo.Camionete))
-             Console.WriteLine($"Este é o nome: {conta.Nome}");
+             foreach (var veiculo in listaDeVeiculos.Where(veiculos => veiculos.Tipo == TipoVeiculo.Camionete))
+             Console.WriteLine($"Este é o nome: {veiculo.Nome}");
                 }
         }
         public void DeletarVeiculo(string veiculoEscolhido){
 
-                var conta = BancoDeDados.Veiculos.FirstOrDefault(conta =>conta.Nome == veiculoEscolhido);
-                BancoDeDados.Veiculos.RemoveAll(conta => conta.Nome == veiculoEscolhido);
-                 Console.WriteLine($"\nConta de {conta.Nome} removida com sucesso!",
+                var veiculo = BancoDeDados.Veiculos.FirstOrDefault(veiculo =>veiculo.Nome == veiculoEscolhido);
+                BancoDeDados.Veiculos.RemoveAll(veiculo => veiculo.Nome == veiculoEscolhido);
+                 Console.WriteLine($"\nveiculo de {veiculo.Nome} removida com sucesso!",
                     Console.ForegroundColor = ConsoleColor.Blue);
 
         }
@@ -120,7 +120,7 @@ namespace Servicos
                 if(BancoDeDados.Veiculos[i].Nome == veiculoEscolhido)
                 {
                 try{
-                    Console.Write($"O nome do titular é {BancoDeDados.Veiculos[i].Nome}. Entre com o novo nome do titular da conta: ");
+                    Console.Write($"O nome do titular é {BancoDeDados.Veiculos[i].Nome}. Entre com o novo nome do titular da veiculo: ");
                         string? nome = Console.ReadLine();
                         CompradorServicos.ValidaString(nome);
 
@@ -141,20 +141,20 @@ namespace Servicos
         public void CarrosVendidos(){
             List<Veiculos> listaDeVeiculos =new();
 
-            foreach (var conta in BancoDeDados.Veiculos)
+            foreach (var veiculo in BancoDeDados.Veiculos)
              {
                
-                listaDeVeiculos.Add(conta);
+                listaDeVeiculos.Add(veiculo);
              }
              listaDeVeiculos = BancoDeDados.Veiculos;
 
              Console.WriteLine("Lista de Veiculos Vendidos: ");
 
-                if(listaDeVeiculos.Where(contas=>contas.CPF != "00000000000").ToList().Count>0)
+                if(listaDeVeiculos.Where(veiculos=>veiculos.CPF != "00000000000").ToList().Count>0)
                 {
                 Console.WriteLine("Lista de Motos/Triciclos:");
-                foreach (var conta in listaDeVeiculos.Where(contas => contas.CPF != "00000000000"))
-             Console.WriteLine($"Este é o nome: {conta.Nome} CPF {conta.CPF}");  
+                foreach (var veiculo in listaDeVeiculos.Where(veiculos => veiculos.CPF != "00000000000"))
+             Console.WriteLine($"Este é o nome: {veiculo.Nome} CPF {veiculo.CPF}");  
              }
 
         }
@@ -162,20 +162,20 @@ namespace Servicos
 
             List<Veiculos> listaDeVeiculos =new();
 
-            foreach (var conta in BancoDeDados.Veiculos)
+            foreach (var veiculo in BancoDeDados.Veiculos)
              {
                
-                listaDeVeiculos.Add(conta);
+                listaDeVeiculos.Add(veiculo);
              }
              listaDeVeiculos = BancoDeDados.Veiculos;
 
              Console.WriteLine("Lista de Veiculos Vendidos: ");
 
-                if(listaDeVeiculos.Where(contas=>contas.CPF == "00000000000").ToList().Count>0)
+                if(listaDeVeiculos.Where(veiculos=>veiculos.CPF == "00000000000").ToList().Count>0)
                 {
                 Console.WriteLine("Lista de Motos/Triciclos:");
-                foreach (var conta in listaDeVeiculos.Where(contas => contas.CPF == "00000000000"))
-             Console.WriteLine($"Este é o nome: {conta.Nome} CPF {conta.CPF}");  
+                foreach (var veiculo in listaDeVeiculos.Where(veiculos => veiculos.CPF == "00000000000"))
+             Console.WriteLine($"Este é o nome: {veiculo.Nome} CPF {veiculo.CPF}");  
              }
         }
         public void CarrosVendidosComMaiorValor(){}
