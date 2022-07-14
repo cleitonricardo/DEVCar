@@ -103,22 +103,13 @@ namespace Servicos
              Console.WriteLine($"Este é o nome: {conta.Nome}");
                 }
         }
-        public void DeletarVeiculo(){
+        public void DeletarVeiculo(string veiculoEscolhido){
 
-            try
-            {
-                Console.Clear();
-                Console.WriteLine("____________DEVCar____________");
-                Console.WriteLine("Qual tipo de Veiculo Deseja Deletar:");
-                Console.WriteLine("1-Moto/Triciclo");
-                Console.WriteLine("2-Carros");
-                Console.WriteLine("3-Camionete");
-                string? escolha =Console.ReadLine();
-            }catch(FormatException)
-            {
-                Console.WriteLine("Formato não aceito. Tente novamente",
-                Console.ForegroundColor = ConsoleColor.Red);
-            }
+                var conta = BancoDeDados.Veiculos.FirstOrDefault(conta =>conta.Nome == veiculoEscolhido);
+                BancoDeDados.Veiculos.RemoveAll(conta => conta.Nome == veiculoEscolhido);
+                 Console.WriteLine($"\nConta de {conta.Nome} removida com sucesso!",
+                    Console.ForegroundColor = ConsoleColor.Blue);
+
         }
         public void AtualizarVeiculo(string veiculoEscolhido)
         {

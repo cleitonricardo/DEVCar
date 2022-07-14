@@ -49,7 +49,10 @@ namespace DEVCar
                     Console.Clear();
                     if (BancoDeDados.Veiculos.Count >0){
                         try{
-                            veiculos.DeletarVeiculo();
+                            veiculos.ListarVeiculos();
+                            Console.WriteLine("Selecione uma conta: ");
+                            VeiculoEscolhido = Console.ReadLine();
+                            veiculos.DeletarVeiculo(VeiculoEscolhido);
                         }
                         catch(FormatException){
                             Console.WriteLine("Formato não aceito. Tente novamente",
