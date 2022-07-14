@@ -14,7 +14,7 @@ namespace DEVCar
 
             VeiculoServicos veiculos = new VeiculoServicos();
 
-            while (opcao != "9")
+            while (opcao != "11")
             { 
 
                 NumeroChassis= BancoDeDados.Veiculos.Count;
@@ -36,7 +36,9 @@ namespace DEVCar
                 Console.WriteLine("6-Carros vendidos");
                 Console.WriteLine("7-Carro vendido com o maior preço");
                 Console.WriteLine("8-Carro vendido com o menor preço");
-                Console.WriteLine("9-Sair");
+                Console.WriteLine("9-Listar Informação do Veiculo");
+                Console.WriteLine("10-Vender Veiculo");
+                Console.WriteLine("11-Sair");
                 Console.WriteLine("O que você deseja:");
                 opcao=Console.ReadLine();
 
