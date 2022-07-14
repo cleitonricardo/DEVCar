@@ -40,9 +40,9 @@ namespace Servicos
                 Console.WriteLine("Entre com a Placa:");
                 conta.Placa =Console.ReadLine();
                 CompradorServicos.ValidaString(conta.Placa);
-                Console.WriteLine("Entre com o CPF do Comprador");
-                conta.CPF= Console.ReadLine();
-                CompradorServicos.ValidaCPF(conta.CPF);
+                
+                conta.CPF= "00000000000";
+                
                 Console.WriteLine("Entre com a cor:");
                 conta.Cor=Console.ReadLine();
                 CompradorServicos.ValidaString(conta.Cor);
@@ -67,7 +67,7 @@ namespace Servicos
         
         }
     
-         public void ListarVeiculos(){
+        public void ListarVeiculos(){
 
              List<Veiculos> listaDeVeiculos =new();
 
@@ -120,8 +120,75 @@ namespace Servicos
                 Console.ForegroundColor = ConsoleColor.Red);
             }
         }
-        public void AtualizarVeiculo(){
+        public void AtualizarVeiculo(string veiculoEscolhido)
+        {
+
+            for (int i =0 ; i <BancoDeDados.Veiculos.Count; i++)
+            {
+
+                if(BancoDeDados.Veiculos[i].Nome == veiculoEscolhido)
+                {
+                try{
+                    Console.Write($"O nome do titular é {BancoDeDados.Veiculos[i].Nome}. Entre com o novo nome do titular da conta: ");
+                        string? nome = Console.ReadLine();
+                        CompradorServicos.ValidaString(nome);
+
+                        BancoDeDados.Veiculos[i].Nome =nome;
+                }
+                catch(FormatException){
+
+                }
+                catch(Exception error){
+                    Console.WriteLine(error.Message,
+                            Console.ForegroundColor = ConsoleColor.Red);
+                        Console.Read();
+                }
+                }
+            }
+            
+        }
+        public void CarrosVendidos(){
+            List<Veiculos> listaDeVeiculos =new();
+
+            foreach (var conta in BancoDeDados.Veiculos)
+             {
+               
+                listaDeVeiculos.Add(conta);
+             }
+             listaDeVeiculos = BancoDeDados.Veiculos;
+
+             Console.WriteLine("Lista de Veiculos Vendidos: ");
+
+                if(listaDeVeiculos.Where(contas=>contas.CPF != "00000000000").ToList().Count>0)
+                {
+                Console.WriteLine("Lista de Motos/Triciclos:");
+                foreach (var conta in listaDeVeiculos.Where(contas => contas.CPF != "00000000000"))
+             Console.WriteLine($"Este é o nome: {conta.Nome} CPF {conta.CPF}");  
+             }
 
         }
+        public void CarrosDisponiveis(){
+
+            List<Veiculos> listaDeVeiculos =new();
+
+            foreach (var conta in BancoDeDados.Veiculos)
+             {
+               
+                listaDeVeiculos.Add(conta);
+             }
+             listaDeVeiculos = BancoDeDados.Veiculos;
+
+             Console.WriteLine("Lista de Veiculos Vendidos: ");
+
+                if(listaDeVeiculos.Where(contas=>contas.CPF == "00000000000").ToList().Count>0)
+                {
+                Console.WriteLine("Lista de Motos/Triciclos:");
+                foreach (var conta in listaDeVeiculos.Where(contas => contas.CPF == "00000000000"))
+             Console.WriteLine($"Este é o nome: {conta.Nome} CPF {conta.CPF}");  
+             }
+        }
+        public void CarrosVendidosComMaiorValor(){}
+        public void CarrosVendidosComMenorValor(){}    
+
     }
 }

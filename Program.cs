@@ -10,6 +10,8 @@ namespace DEVCar
             string? opcao="0";
             int NumeroChassis=0;
             uint Numero=1;
+            string? VeiculoEscolhido = "";
+
             VeiculoServicos veiculos = new VeiculoServicos();
 
             while (opcao != "9")
@@ -62,7 +64,11 @@ namespace DEVCar
                     Console.Clear();
                     if (BancoDeDados.Veiculos.Count >0){
                         try{
-                            veiculos.AtualizarVeiculo();
+                            veiculos.ListarVeiculos();
+                            Console.WriteLine("Selecione um Veiculo: ");
+                            VeiculoEscolhido = Console.ReadLine();
+                            veiculos.AtualizarVeiculo(VeiculoEscolhido);
+
                         }
                         catch(FormatException){
                             Console.WriteLine("Formato não aceito. Tente novamente",
@@ -93,8 +99,44 @@ namespace DEVCar
                     Console.Read();
                     break;
                     case "5":
+                    Console.Clear();
+                    if (BancoDeDados.Veiculos.Count >0)
+                    {
+                        try
+                        {
+                            veiculos.CarrosDisponiveis();
+
+                        }
+                        catch(FormatException)
+                        {
+                            Console.WriteLine("Formato não aceito. Tente novamente",
+                            Console.ForegroundColor = ConsoleColor.Red);
+                        }
+                    }else{
+                        Console.WriteLine("Não existe Veiculos cadastrado", Console.ForegroundColor=ConsoleColor.Red);
+                    }
+                    Console.Read();
+
                     break;
                     case "6":
+                    Console.Clear();
+                    if (BancoDeDados.Veiculos.Count >0)
+                    {
+                        try
+                        {
+                            veiculos.CarrosVendidos();
+
+                        }
+                        catch(FormatException)
+                        {
+                            Console.WriteLine("Formato não aceito. Tente novamente",
+                            Console.ForegroundColor = ConsoleColor.Red);
+                        }
+                    }else{
+                        Console.WriteLine("Não existe Veiculos cadastrado", Console.ForegroundColor=ConsoleColor.Red);
+                    }
+                    Console.Read();
+
                     break;
                     case "7":
                     break;
