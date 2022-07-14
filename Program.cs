@@ -9,19 +9,16 @@ namespace DEVCar
         {
             string? opcao="0";
             int NumeroChassis=0;
-            uint Numero=1;
             string? VeiculoEscolhido = "";
 
             VeiculoServicos veiculos = new VeiculoServicos();
 
-            while (opcao != "11")
-            { 
-
-                NumeroChassis= BancoDeDados.Veiculos.Count;
+            while (opcao != "10")
+            {                
                 if (BancoDeDados.Veiculos.Count >0)
                 {
-                    Numero =BancoDeDados.Veiculos.Last().NumeroChassis +1;
-                }
+                    NumeroChassis =BancoDeDados.Veiculos.Last().NumeroChassis +1;
+                }else{NumeroChassis= BancoDeDados.Veiculos.Count;}
 
                 
                 Console.Clear();
@@ -32,13 +29,12 @@ namespace DEVCar
                 Console.WriteLine("2-Deletar Veiculo");
                 Console.WriteLine("3-Atualizar Veiculo");
                 Console.WriteLine("4-Listar todos os carros");
-                Console.WriteLine("5-Carros disponiveis");
-                Console.WriteLine("6-Carros vendidos");
-                Console.WriteLine("7-Carro vendido com o maior preço");
-                Console.WriteLine("8-Carro vendido com o menor preço");
-                Console.WriteLine("9-Listar Informação do Veiculo");
-                Console.WriteLine("10-Vender Veiculo");
-                Console.WriteLine("11-Sair");
+                Console.WriteLine("5-Veiculos disponiveis");
+                Console.WriteLine("6-Veiculos vendidos");
+                Console.WriteLine("7-Veiculo vendido com o maior preço");
+                Console.WriteLine("8-Veiculo vendido com o menor preço");
+                Console.WriteLine("9-Vender Veiculo");
+                Console.WriteLine("10-Sair");
                 Console.WriteLine("O que você deseja:");
                 opcao=Console.ReadLine();
 
