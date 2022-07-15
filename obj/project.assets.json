@@ -8,27 +8,26 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\cleit\\.nuget\\packages\\": {}
+    "C:\\Users\\spagnol\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cleit\\OneDrive\\Área de Trabalho\\DEVCar\\DEV_car.csproj",
+      "projectUniqueName": "C:\\Users\\spagnol\\Desktop\\Projetos\\teste\\DEVCar\\DEV_car.csproj",
       "projectName": "DEV_car",
-      "projectPath": "C:\\Users\\cleit\\OneDrive\\Área de Trabalho\\DEVCar\\DEV_car.csproj",
-      "packagesPath": "C:\\Users\\cleit\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\cleit\\OneDrive\\Área de Trabalho\\DEVCar\\obj\\",
+      "projectPath": "C:\\Users\\spagnol\\Desktop\\Projetos\\teste\\DEVCar\\DEV_car.csproj",
+      "packagesPath": "C:\\Users\\spagnol\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\spagnol\\Desktop\\Projetos\\teste\\DEVCar\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\cleit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\spagnol\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
       },
       "frameworks": {
         "net6.0": {

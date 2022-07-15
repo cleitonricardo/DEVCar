@@ -160,6 +160,7 @@ namespace DEVCar
                     }else{
                         Console.WriteLine("Não existe Veiculos cadastrado", Console.ForegroundColor=ConsoleColor.Red);
                     }
+                     Console.Read();
                     break;
                 }
             }

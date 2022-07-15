@@ -46,6 +46,8 @@ namespace Servicos
                 Console.WriteLine("Entre com a cor:");
                 veiculo.Cor=Console.ReadLine();
                 CompradorServicos.ValidaString(veiculo.Cor);
+                Console.WriteLine($"\nveiculo {veiculo.Nome} cadastrado com sucesso!",
+                    Console.ForegroundColor = ConsoleColor.Green);
                 Console.ReadLine();
                 
 
@@ -155,6 +157,8 @@ namespace Servicos
                 Console.WriteLine("Lista de Motos/Triciclos:");
                 foreach (var veiculo in listaDeVeiculos.Where(veiculos => veiculos.CPF != "00000000000"))
              Console.WriteLine($"Este é o nome: {veiculo.Nome} CPF {veiculo.CPF}");  
+             }else{
+               Console.WriteLine("Não existe Veiculos Vendidos", Console.ForegroundColor=ConsoleColor.Red);
              }
 
         }
@@ -176,6 +180,8 @@ namespace Servicos
                 Console.WriteLine("Lista de Motos/Triciclos:");
                 foreach (var veiculo in listaDeVeiculos.Where(veiculos => veiculos.CPF == "00000000000"))
              Console.WriteLine($"Este é o nome: {veiculo.Nome} CPF {veiculo.CPF}");  
+             }else{
+               Console.WriteLine("Não existe Veiculos Disponiveis", Console.ForegroundColor=ConsoleColor.Red);
              }
         }
         public void CarrosVendidosComMaiorValor(){}
