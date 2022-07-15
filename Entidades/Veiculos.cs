@@ -14,17 +14,9 @@ namespace Entidades
         public string? Cor {get;set;}
         public TipoVeiculo Tipo {get; set;}
 
-        public Veiculos(string dataDeFabricacao,
-                        string nome,
-                        string placa,
-                        uint valor,
-                        string cor)
+        public Veiculos()
             {
-                DataFabricacao =dataDeFabricacao;
-                Nome = nome;
-                Placa = placa;
-                Valor = valor;
-                Cor = cor;
+              
             }
 
         public void VenderVeiculo(){}

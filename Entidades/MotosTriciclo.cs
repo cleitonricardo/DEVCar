@@ -6,17 +6,10 @@ namespace Entidades
         public int Potencia{get;set;}
         public int Rodas{get;set;}
 
-        public MotosTriciclo(int rodas,
-                             int potencia,
-                             string DataFabricacao,
-                             string Nome,
-                             string Placa,
-                             uint Valor,
-                             string Cor):base(DataFabricacao,Nome,Placa,Valor,Cor)
+        public MotosTriciclo()
                          
         {
-          Potencia = potencia;
-          Rodas = rodas;
+         
         }
     }
 }
