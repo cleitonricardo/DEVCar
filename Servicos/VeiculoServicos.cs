@@ -179,7 +179,35 @@ namespace Servicos
              }
         }
         public void CarrosVendidosComMaiorValor(){}
-        public void CarrosVendidosComMenorValor(){}    
+        public void CarrosVendidosComMenorValor(){} 
+
+        public void VenderVeiculo(string veiculoEscolhido){
+                for (int i =0 ; i <BancoDeDados.Veiculos.Count; i++)
+            {
+
+                if(BancoDeDados.Veiculos[i].Nome == veiculoEscolhido)
+                {
+                try{
+                    Console.Write($"Entre com o CPF do comprador do veiculo: ");
+                        string? CPF = Console.ReadLine();
+                        CompradorServicos.ValidaCPF(CPF);
+
+                        BancoDeDados.Veiculos[i].CPF =CPF;
+                        Console.WriteLine($"\nveiculo de {veiculoEscolhido} vendido com sucesso! para o CPF : {CPF}",
+                    Console.ForegroundColor = ConsoleColor.Blue);
+                }
+                catch(FormatException){
+
+                }
+                catch(Exception error){
+                    Console.WriteLine(error.Message,
+                            Console.ForegroundColor = ConsoleColor.Red);
+                        Console.Read();
+                }
+                }
+            }
+
+        }    
 
     }
 }

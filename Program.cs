@@ -145,6 +145,21 @@ namespace DEVCar
                     break;
                     case "9":
                     Console.Clear();
+                    if (BancoDeDados.Veiculos.Count >0){
+                        try{
+                            veiculos.ListarVeiculos();
+                            Console.WriteLine("Selecione um Veiculo: ");
+                            VeiculoEscolhido = Console.ReadLine();
+                            veiculos.VenderVeiculo(VeiculoEscolhido);
+
+                        }
+                        catch(FormatException){
+                            Console.WriteLine("Formato não aceito. Tente novamente",
+                            Console.ForegroundColor = ConsoleColor.Red);
+                        }
+                    }else{
+                        Console.WriteLine("Não existe Veiculos cadastrado", Console.ForegroundColor=ConsoleColor.Red);
+                    }
                     break;
                 }
             }
