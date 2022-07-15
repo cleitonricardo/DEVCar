@@ -41,7 +41,7 @@ namespace DEVCar
                 switch(opcao)
                 {
                     case "1":
-                       veiculos.CadastrarVeiculo();
+                       veiculos.CadastrarVeiculo(NumeroChassis);
                     break;
                     case "2":
                     Console.Clear();

@@ -2,7 +2,7 @@ namespace Servicos
 {
     public class CompradorServicos
     {
-        public static bool ValidaCPF(string vrCPF)
+        public static bool ValidaCPF(string? vrCPF)
         {
           string valor = vrCPF.Replace(".", "");
 
@@ -97,7 +97,7 @@ namespace Servicos
 
             return true;
         }
-         public static bool ValidaString(string valor)
+         public static bool ValidaString(string? valor)
         {
             if (valor.Length == 0)
             {

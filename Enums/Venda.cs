@@ -1,4 +1,4 @@
-namespace Entidades
+namespace Enums
 {
     internal class Vendas
     {

@@ -1,4 +1,4 @@
-using Entidades;
+using Enums;
 
 namespace Banco.Db  
 {

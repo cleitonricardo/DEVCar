@@ -6,7 +6,7 @@ namespace Servicos
 {
     public class VeiculoServicos
     {
-        public void CadastrarVeiculo()
+        public void CadastrarVeiculo(int numero)
         {
                 Veiculos veiculo;
             
@@ -23,13 +23,13 @@ namespace Servicos
                 veiculo=escolha switch
                 
                 {
-                    "1" => new MotosTriciclo(),
-                    "2" => new Carros(),
-                    "3" => new Camionete(),
+                    "1" => new MotoTricicloAcao(TipoVeiculo.MotosTriciclo),
+                    "2" => new CarroAcao(TipoVeiculo.Carro),
+                    "3" => new CamioneteAcao(TipoVeiculo.Camionete),
                     _   => throw new Exception("\nOpção inválida. Tente novamente.")
                 };
                 veiculo.Tipo =(TipoVeiculo)Convert.ToInt32(escolha);
-                veiculo.NumeroChassis = 1;  
+                veiculo.NumeroChassis = numero;  
                 Console.WriteLine($"O numero do Chassis será: {veiculo.NumeroChassis}");
                 Console.WriteLine("Entre com a data de fabricação :");
                 veiculo.DataFabricacao = Console.ReadLine();
@@ -40,12 +40,11 @@ namespace Servicos
                 Console.WriteLine("Entre com a Placa:");
                 veiculo.Placa =Console.ReadLine();
                 CompradorServicos.ValidaString(veiculo.Placa);
-                
                 veiculo.CPF= "00000000000";
-                
                 Console.WriteLine("Entre com a cor:");
                 veiculo.Cor=Console.ReadLine();
                 CompradorServicos.ValidaString(veiculo.Cor);
+                
                 Console.WriteLine($"\nveiculo {veiculo.Nome} cadastrado com sucesso!",
                     Console.ForegroundColor = ConsoleColor.Green);
                 Console.ReadLine();
@@ -105,7 +104,7 @@ namespace Servicos
              Console.WriteLine($"Este é o nome: {veiculo.Nome}");
                 }
         }
-        public void DeletarVeiculo(string veiculoEscolhido){
+        public void DeletarVeiculo(string? veiculoEscolhido){
 
                 var veiculo = BancoDeDados.Veiculos.FirstOrDefault(veiculo =>veiculo.Nome == veiculoEscolhido);
                 BancoDeDados.Veiculos.RemoveAll(veiculo => veiculo.Nome == veiculoEscolhido);
@@ -113,7 +112,7 @@ namespace Servicos
                     Console.ForegroundColor = ConsoleColor.Blue);
 
         }
-        public void AtualizarVeiculo(string veiculoEscolhido)
+        public void AtualizarVeiculo(string? veiculoEscolhido)
         {
 
             for (int i =0 ; i <BancoDeDados.Veiculos.Count; i++)
@@ -187,7 +186,7 @@ namespace Servicos
         public void CarrosVendidosComMaiorValor(){}
         public void CarrosVendidosComMenorValor(){} 
 
-        public void VenderVeiculo(string veiculoEscolhido){
+        public void VenderVeiculo(string? veiculoEscolhido){
                 for (int i =0 ; i <BancoDeDados.Veiculos.Count; i++)
             {
 

@@ -1,7 +1,5 @@
-using Enums;
-
-    
-namespace Entidades
+   
+namespace Enums
 {
     public class Veiculos 
     {
