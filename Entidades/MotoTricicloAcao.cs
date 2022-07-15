@@ -1,4 +1,5 @@
 using Enums;
+using Banco.Db;
 
 namespace Entidades
 {
@@ -9,10 +10,12 @@ namespace Entidades
             MotosTriciclo motoTriciclo = new();
            
                        
-            Console.WriteLine("Informe a quantidade de Rodas:");
+            Console.Write("\nInforme a quantidade de Rodas:");
             motoTriciclo.Rodas = Console.ReadLine();
-            Console.WriteLine("Informe a Potencia:");
+            Console.Write("\nInforme a Potencia:");
             motoTriciclo.Potencia = Console.ReadLine();
+
+            BancoDeDados.Veiculos.Add(motoTriciclo);
         }
         }
 }

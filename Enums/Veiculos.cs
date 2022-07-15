@@ -11,16 +11,15 @@ namespace Enums
         public string? CPF {get;set;}
         public string? Cor {get;set;}
         public TipoVeiculo Tipo {get; set;}
+        public List<MotosTriciclo> MotosTriciclo{get;set;}
+        public List<Camionete> Camionete{get;set;}
+        public List<Carros> Carros{get;set;}
 
         public Veiculos()
             {
               
+              
             }
-
-        public void VenderVeiculo(){}
-        public void ListarInformacoes(){}
-        public void AlterarInformacoes(string Cor, uint valor){}
-
         
     }
 }

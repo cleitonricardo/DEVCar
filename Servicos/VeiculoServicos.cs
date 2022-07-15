@@ -31,17 +31,17 @@ namespace Servicos
                 veiculo.Tipo =(TipoVeiculo)Convert.ToInt32(escolha);
                 veiculo.NumeroChassis = numero;  
                 Console.WriteLine($"O numero do Chassis será: {veiculo.NumeroChassis}");
-                Console.WriteLine("Entre com a data de fabricação :");
+                Console.Write("\nEntre com a data de fabricação :");
                 veiculo.DataFabricacao = Console.ReadLine();
                 CompradorServicos.ValidaString(veiculo.DataFabricacao);
-                Console.WriteLine("Entre com o Nome :");
+                Console.Write("\nEntre com o Nome :");
                 veiculo.Nome =Console.ReadLine();
                 CompradorServicos.ValidaString(veiculo.Nome);
-                Console.WriteLine("Entre com a Placa:");
+                Console.Write("\nEntre com a Placa:");
                 veiculo.Placa =Console.ReadLine();
                 CompradorServicos.ValidaString(veiculo.Placa);
                 veiculo.CPF= "00000000000";
-                Console.WriteLine("Entre com a cor:");
+                Console.Write("\nEntre com a cor:");
                 veiculo.Cor=Console.ReadLine();
                 CompradorServicos.ValidaString(veiculo.Cor);
                 
@@ -87,7 +87,7 @@ namespace Servicos
                 {
                 Console.WriteLine("Lista de Motos/Triciclos:");
                 foreach (var veiculo in listaDeVeiculos.Where(veiculos => veiculos.Tipo == TipoVeiculo.MotosTriciclo))
-             Console.WriteLine($"Este é o nome: {veiculo.Nome}");  
+             Console.WriteLine($"Este é o nome: {veiculo.MotosTriciclo}");  
              }
 
              if(listaDeVeiculos.Where(veiculos=>veiculos.Tipo == TipoVeiculo.Carro).ToList().Count>0)

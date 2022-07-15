@@ -8,8 +8,8 @@ namespace Enums
 
         public MotosTriciclo( )
                          
-        {
-      
-        }
+        {}
+
+
     }
 }
