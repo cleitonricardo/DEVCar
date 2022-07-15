@@ -9,6 +9,7 @@ namespace Servicos
         public void CadastrarVeiculo(int numero)
         {
                 Veiculos veiculo;
+                
             
             try
             {
@@ -23,11 +24,12 @@ namespace Servicos
                 veiculo=escolha switch
                 
                 {
-                    "1" => new MotoTricicloAcao(TipoVeiculo.MotosTriciclo),
-                    "2" => new CarroAcao(TipoVeiculo.Carro),
-                    "3" => new CamioneteAcao(TipoVeiculo.Camionete),
+                    "1" => new MotoTricicloEntity(TipoVeiculo.MotosTriciclo),
+                    "2" => new CarroEntity(TipoVeiculo.Carro),
+                    "3" => new CamioneteEntity(TipoVeiculo.Camionete),
                     _   => throw new Exception("\nOpção inválida. Tente novamente.")
                 };
+                
                 veiculo.Tipo =(TipoVeiculo)Convert.ToInt32(escolha);
                 veiculo.NumeroChassis = numero;  
                 Console.WriteLine($"O numero do Chassis será: {veiculo.NumeroChassis}");

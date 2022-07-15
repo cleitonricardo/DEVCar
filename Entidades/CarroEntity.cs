@@ -2,9 +2,9 @@ using Enums;
 
 namespace Entidades
 {
-    public class CarroAcao : Veiculos
+    public class CarroEntity : Veiculos
     {
-        public CarroAcao(TipoVeiculo tipo)
+        public CarroEntity(TipoVeiculo tipo)
         {
             Carros carros = new();
 

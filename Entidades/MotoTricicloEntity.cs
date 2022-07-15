@@ -3,9 +3,9 @@ using Banco.Db;
 
 namespace Entidades
 {
-    public class MotoTricicloAcao : Veiculos
+    public class MotoTricicloEntity : Veiculos
     {
-        public MotoTricicloAcao(TipoVeiculo tipo)
+        public MotoTricicloEntity(TipoVeiculo tipo)
         {
             MotosTriciclo motoTriciclo = new();
            
@@ -16,6 +16,7 @@ namespace Entidades
             motoTriciclo.Potencia = Console.ReadLine();
 
             BancoDeDados.Veiculos.Add(motoTriciclo);
+        
         }
         }
 }
