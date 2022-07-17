@@ -73,3 +73,18 @@ C:\Users\cleit\OneDrive\Área de Trabalho\CARDEV\DEVCar\obj\Debug\net6.0\refint\
 C:\Users\cleit\OneDrive\Área de Trabalho\CARDEV\DEVCar\obj\Debug\net6.0\DEV_car.pdb
 C:\Users\cleit\OneDrive\Área de Trabalho\CARDEV\DEVCar\obj\Debug\net6.0\DEV_car.genruntimeconfig.cache
 C:\Users\cleit\OneDrive\Área de Trabalho\CARDEV\DEVCar\obj\Debug\net6.0\ref\DEV_car.dll
+C:\Users\cleit\OneDrive\Área de Trabalho\Nova pasta (3)\DEVCar\bin\Debug\net6.0\DEV_car.exe
+C:\Users\cleit\OneDrive\Área de Trabalho\Nova pasta (3)\DEVCar\bin\Debug\net6.0\DEV_car.deps.json
+C:\Users\cleit\OneDrive\Área de Trabalho\Nova pasta (3)\DEVCar\bin\Debug\net6.0\DEV_car.runtimeconfig.json
+C:\Users\cleit\OneDrive\Área de Trabalho\Nova pasta (3)\DEVCar\bin\Debug\net6.0\DEV_car.dll
+C:\Users\cleit\OneDrive\Área de Trabalho\Nova pasta (3)\DEVCar\bin\Debug\net6.0\DEV_car.pdb
+C:\Users\cleit\OneDrive\Área de Trabalho\Nova pasta (3)\DEVCar\obj\Debug\net6.0\DEV_car.csproj.AssemblyReference.cache
+C:\Users\cleit\OneDrive\Área de Trabalho\Nova pasta (3)\DEVCar\obj\Debug\net6.0\DEV_car.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cleit\OneDrive\Área de Trabalho\Nova pasta (3)\DEVCar\obj\Debug\net6.0\DEV_car.AssemblyInfoInputs.cache
+C:\Users\cleit\OneDrive\Área de Trabalho\Nova pasta (3)\DEVCar\obj\Debug\net6.0\DEV_car.AssemblyInfo.cs
+C:\Users\cleit\OneDrive\Área de Trabalho\Nova pasta (3)\DEVCar\obj\Debug\net6.0\DEV_car.csproj.CoreCompileInputs.cache
+C:\Users\cleit\OneDrive\Área de Trabalho\Nova pasta (3)\DEVCar\obj\Debug\net6.0\DEV_car.dll
+C:\Users\cleit\OneDrive\Área de Trabalho\Nova pasta (3)\DEVCar\obj\Debug\net6.0\refint\DEV_car.dll
+C:\Users\cleit\OneDrive\Área de Trabalho\Nova pasta (3)\DEVCar\obj\Debug\net6.0\DEV_car.pdb
+C:\Users\cleit\OneDrive\Área de Trabalho\Nova pasta (3)\DEVCar\obj\Debug\net6.0\DEV_car.genruntimeconfig.cache
+C:\Users\cleit\OneDrive\Área de Trabalho\Nova pasta (3)\DEVCar\obj\Debug\net6.0\ref\DEV_car.dll
