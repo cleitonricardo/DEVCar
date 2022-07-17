@@ -17,15 +17,14 @@ seguintes tipos de carros, cada um com suas características:</p>
 <li>■ Potência (em cavalos).</li></ul>
 </ul>
 </li>
-● Camionete:
-○ Carro possui como características principais:
-■ Total de portas.
-5
-■ Capacidade de carregamento na caçamba (em litros).
-■ Potência (em cavalos).
-■ Se será gasolina ou diesel.
-○ Um detalhe importante é que o DEVCar só fabrica camionetes na corte Roxa.
-■ Criar um teste unitário para validar a regra citada acima.
+<li>● Camionete:
+<ul>○ Carro possui como características principais:
+<ul><li>■ Total de portas.</li>
+<li>■ Capacidade de carregamento na caçamba (em litros).</li>
+<li>■ Potência (em cavalos).</li>
+<li>■ Se será gasolina ou diesel.</li></ul>
+<ul>○ Um detalhe importante é que o DEVCar só fabrica camionetes na corte Roxa.
+<ul><li>■ Criar um teste unitário para validar a regra citada acima.
 </li>
 Todos os veículos devem ser derivadas da classe Veículo, que possui os seguintes atributos e
 métodos:
