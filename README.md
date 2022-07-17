@@ -23,7 +23,7 @@ seguintes tipos de carros, cada um com suas características:</p>
 <li>■ Capacidade de carregamento na caçamba (em litros).</li>
 <li>■ Potência (em cavalos).</li>
 <li>■ Se será gasolina ou diesel.</li></ul>
-<ul>○ Um detalhe importante é que o DEVCar só fabrica camionetes na corte Roxa.
+○ Um detalhe importante é que o DEVCar só fabrica camionetes na corte Roxa.
 <ul><li>■ Criar um teste unitário para validar a regra citada acima.
 </li>
 Todos os veículos devem ser derivadas da classe Veículo, que possui os seguintes atributos e
