@@ -1,27 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\spagnol\\Desktop\\Projetos\\teste\\DEVCar\\DEV_car.csproj": {}
+    "C:\\Users\\cleit\\OneDrive\\Área de Trabalho\\CARDEV\\DEVCar\\DEV_car.csproj": {}
   },
   "projects": {
-    "C:\\Users\\spagnol\\Desktop\\Projetos\\teste\\DEVCar\\DEV_car.csproj": {
+    "C:\\Users\\cleit\\OneDrive\\Área de Trabalho\\CARDEV\\DEVCar\\DEV_car.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\spagnol\\Desktop\\Projetos\\teste\\DEVCar\\DEV_car.csproj",
+        "projectUniqueName": "C:\\Users\\cleit\\OneDrive\\Área de Trabalho\\CARDEV\\DEVCar\\DEV_car.csproj",
         "projectName": "DEV_car",
-        "projectPath": "C:\\Users\\spagnol\\Desktop\\Projetos\\teste\\DEVCar\\DEV_car.csproj",
-        "packagesPath": "C:\\Users\\spagnol\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\spagnol\\Desktop\\Projetos\\teste\\DEVCar\\obj\\",
+        "projectPath": "C:\\Users\\cleit\\OneDrive\\Área de Trabalho\\CARDEV\\DEVCar\\DEV_car.csproj",
+        "packagesPath": "C:\\Users\\cleit\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cleit\\OneDrive\\Área de Trabalho\\CARDEV\\DEVCar\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\spagnol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\cleit\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {

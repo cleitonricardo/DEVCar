@@ -3,10 +3,10 @@ namespace Enums
 
     public class Camionete: Veiculos
     {
-        public string? Portas{get;set;}
-        public string? Cacamba{get;set;}
-        public string? Potencia{get;set;}
-        public string? Combustivel{get;set;}
+        public int Portas{get;set;}
+        public int Cacamba{get;set;}
+        public int Potencia{get;set;}
+        public int Combustivel{get;set;}
 
         public Camionete()
                          

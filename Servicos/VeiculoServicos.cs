@@ -9,6 +9,9 @@ namespace Servicos
         public void CadastrarVeiculo(int numero)
         {
                 Veiculos veiculo;
+                MotoTricicloEntity motoTriciclo = new MotoTricicloEntity();
+                CarroEntity carro = new CarroEntity();
+                 CamioneteEntity camionete = new CamioneteEntity();
                 
             
             try
@@ -21,45 +24,25 @@ namespace Servicos
                 Console.WriteLine("3-Camionete");
                 string? escolha =Console.ReadLine();
 
-                veiculo=escolha switch
+                 switch(escolha)
                 
                 {
-                    "1" => new MotoTricicloEntity(TipoVeiculo.MotosTriciclo),
-                    "2" => new CarroEntity(TipoVeiculo.Carro),
-                    "3" => new CamioneteEntity(TipoVeiculo.Camionete),
-                    _   => throw new Exception("\nOpção inválida. Tente novamente.")
+                 case "1":
+                        motoTriciclo.Cadastro();
+                        break;
+                    case "2":
+                        carro.Cadastro();
+                        break;
+                    case "3":
+                        camionete.Cadastro();
+                        break;
                 };
                 
-                veiculo.Tipo =(TipoVeiculo)Convert.ToInt32(escolha);
-                veiculo.NumeroChassis = numero;  
-                Console.WriteLine($"O numero do Chassis será: {veiculo.NumeroChassis}");
-                Console.Write("\nEntre com a data de fabricação :");
-                veiculo.DataFabricacao = Console.ReadLine();
-                CompradorServicos.ValidaString(veiculo.DataFabricacao);
-                Console.Write("\nEntre com o Nome :");
-                veiculo.Nome =Console.ReadLine();
-                CompradorServicos.ValidaString(veiculo.Nome);
-                Console.Write("\nEntre com a Placa:");
-                veiculo.Placa =Console.ReadLine();
-                CompradorServicos.ValidaString(veiculo.Placa);
-                veiculo.CPF= "00000000000";
-                Console.Write("\nEntre com a cor:");
-                veiculo.Cor=Console.ReadLine();
-                CompradorServicos.ValidaString(veiculo.Cor);
-                
-                Console.WriteLine($"\nveiculo {veiculo.Nome} cadastrado com sucesso!",
-                    Console.ForegroundColor = ConsoleColor.Green);
-                Console.ReadLine();
-                
-
-                BancoDeDados.Veiculos.Add(veiculo);
-
-              
-
             }catch(FormatException)
             {
                 Console.WriteLine("\nFormato não aceito. Tente novamente",
                 Console.ForegroundColor = ConsoleColor.Red);
+                Console.Read();
             }
             catch(Exception error)
             {
@@ -72,39 +55,41 @@ namespace Servicos
     
         public void ListarVeiculos(){
 
-             List<Veiculos> listaDeVeiculos =new();
+             List<Veiculos> listaDeVeiculos = new();
+            foreach (var carro in Banco.Db.BancoDeDados.Veiculos)
+            {
+                listaDeVeiculos.Add(carro);
+            }
 
-             foreach (var veiculo in BancoDeDados.Veiculos)
-             {
-               
-                listaDeVeiculos.Add(veiculo);
-             }
+            listaDeVeiculos = Banco.Db.BancoDeDados.Veiculos;
 
-                
-             listaDeVeiculos = BancoDeDados.Veiculos;
+            Console.WriteLine("Lista Completa");
 
-                Console.WriteLine("Lista Completa de Veiculos: ");
+            
 
-                if(listaDeVeiculos.Where(veiculos=>veiculos.Tipo == TipoVeiculo.MotosTriciclo).ToList().Count>0)
-                {
+            if (listaDeVeiculos.Where(moto => moto.Tipo == TipoVeiculo.MotosTriciclo).ToList().Count > 0)
+            {
                 Console.WriteLine("Lista de Motos/Triciclos:");
-                foreach (var veiculo in listaDeVeiculos.Where(veiculos => veiculos.Tipo == TipoVeiculo.MotosTriciclo))
-             Console.WriteLine($"Este é o nome: {veiculo.MotosTriciclo}");  
-             }
+                foreach (var moto in listaDeVeiculos.Where(moto => moto.Tipo == TipoVeiculo.MotosTriciclo))
+                    Console.WriteLine($"Este é o nome: {moto.Nome}");
+                
+            }
+            if (listaDeVeiculos.Where(carro => carro.Tipo == TipoVeiculo.Carro).ToList().Count > 0)
+            {
+                Console.WriteLine("Lista de Carros");
+                foreach (var carro in listaDeVeiculos.Where(carro => carro.Tipo == TipoVeiculo.Carro))
+                    Console.WriteLine($"Este é o nome: {carro.Nome}");
+                
+            }
 
-             if(listaDeVeiculos.Where(veiculos=>veiculos.Tipo == TipoVeiculo.Carro).ToList().Count>0)
-                {
-                    Console.WriteLine("Lista de Carros:");
-                    foreach (var veiculo in listaDeVeiculos.Where(veiculos => veiculos.Tipo == TipoVeiculo.Carro))
-             Console.WriteLine($"Este é o nome: {veiculo.Nome}");
-                }
-
-            if(listaDeVeiculos.Where(veiculos=>veiculos.Tipo == TipoVeiculo.Camionete).ToList().Count>0)
-                {
-                    Console.WriteLine("Lista de Camionete:");
-             foreach (var veiculo in listaDeVeiculos.Where(veiculos => veiculos.Tipo == TipoVeiculo.Camionete))
-             Console.WriteLine($"Este é o nome: {veiculo.Nome}");
-                }
+            if (listaDeVeiculos.Where(camionete => camionete.Tipo == TipoVeiculo.Camionete).ToList().Count > 0)
+            {
+                
+                Console.WriteLine("Lista de Camionete");
+                foreach (var camionete in listaDeVeiculos.Where(camionete => camionete.Tipo == TipoVeiculo.Camionete))
+                    Console.WriteLine($"Este é o nome: {camionete.Nome}");
+                
+            }
         }
         public void DeletarVeiculo(string? veiculoEscolhido){
 

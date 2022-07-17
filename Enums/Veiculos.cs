@@ -20,6 +20,8 @@ namespace Enums
               
               
             }
+            public virtual void Cadastro()
+            {}
         
     }
 }

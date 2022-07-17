@@ -3,8 +3,8 @@ namespace Enums
 
     public class MotosTriciclo : Veiculos
     {
-        public string? Potencia{get;set;}
-        public string? Rodas{get;set;}
+        public int Potencia{get;set;}
+        public int Rodas{get;set;}
 
         public MotosTriciclo( )
                          
