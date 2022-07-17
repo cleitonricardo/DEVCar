@@ -12,9 +12,9 @@ seguintes tipos de carros, cada um com suas características:</p>
 </ul>
 <li>● Carro
 <ul>○ Carro possui como características principais:
-<li>■ Total de portas.</li>
+<ul><li>■ Total de portas.</li>
 <li>■ Se será flex ou somente gasolina.</li>
-<li>■ Potência (em cavalos).</li>
+<li>■ Potência (em cavalos).</li></ul>
 </ul>
 </li>
 ● Camionete:
