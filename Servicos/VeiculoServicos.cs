@@ -6,14 +6,13 @@ namespace Servicos
 {
     public class VeiculoServicos
     {
-        public void CadastrarVeiculo(int numero)
+        Veiculos veiculo;
+        MotoTricicloEntity motoTriciclo = new MotoTricicloEntity();
+        CarroEntity carro = new CarroEntity();
+        CamioneteEntity camionete = new CamioneteEntity();
+        public void CadastrarVeiculo()
         {
-                Veiculos veiculo;
-                MotoTricicloEntity motoTriciclo = new MotoTricicloEntity();
-                CarroEntity carro = new CarroEntity();
-                 CamioneteEntity camionete = new CamioneteEntity();
-                
-            
+
             try
             {
                 Console.Clear();
@@ -27,7 +26,7 @@ namespace Servicos
                  switch(escolha)
                 
                 {
-                 case "1":
+                    case "1":
                         motoTriciclo.Cadastro();
                         break;
                     case "2":
@@ -36,6 +35,10 @@ namespace Servicos
                     case "3":
                         camionete.Cadastro();
                         break;
+                    default:
+                        throw new Exception("\nOpção inválida. Tente novamente.");
+                        break;
+
                 };
                 
             }catch(FormatException)
@@ -52,143 +55,354 @@ namespace Servicos
             }
         
         }
-    
         public void ListarVeiculos(){
 
-             List<Veiculos> listaDeVeiculos = new();
-            foreach (var carro in Banco.Db.BancoDeDados.Veiculos)
+            try
             {
-                listaDeVeiculos.Add(carro);
+                Console.Clear();
+                Console.WriteLine("Escolha a Opção de Lista abaixo :");
+                Console.WriteLine("1 - Motos e Triciclos.");
+                Console.WriteLine("2 - Carros.");
+                Console.WriteLine("3 - Camionetes");
+                Console.WriteLine("4 - Todos os Veiculos.");
+                string? opcao = Console.ReadLine();
+
+                switch (opcao)
+                {
+                    case "1":
+                        motoTriciclo.ListarInformacoes();
+                        break;
+                    case "2":
+                        carro.ListarInformacoes();
+                        break;
+                    case "3":
+                        camionete.ListarInformacoes();
+                        break;
+                    case "4":
+                        Console.WriteLine("Lista Completa");
+                        motoTriciclo.ListarInformacoes();
+                        carro.ListarInformacoes();
+                        camionete.ListarInformacoes();
+                        break;
+
+                    default:
+                        throw new Exception("\nOpção inválida. Tente novamente.");
+                        break;
+                }
+            }catch(FormatException)
+            {
+                Console.WriteLine("\nFormato não aceito. Tente novamente",
+                Console.ForegroundColor = ConsoleColor.Red);
+                Console.Read();
             }
-
-            listaDeVeiculos = Banco.Db.BancoDeDados.Veiculos;
-
-            Console.WriteLine("Lista Completa");
-
-            
-
-            if (listaDeVeiculos.Where(moto => moto.Tipo == TipoVeiculo.MotosTriciclo).ToList().Count > 0)
+            catch (Exception error)
             {
-                Console.WriteLine("Lista de Motos/Triciclos:");
-                foreach (var moto in listaDeVeiculos.Where(moto => moto.Tipo == TipoVeiculo.MotosTriciclo))
-                    Console.WriteLine($"Este é o nome: {moto.Nome}");
-                
-            }
-            if (listaDeVeiculos.Where(carro => carro.Tipo == TipoVeiculo.Carro).ToList().Count > 0)
-            {
-                Console.WriteLine("Lista de Carros");
-                foreach (var carro in listaDeVeiculos.Where(carro => carro.Tipo == TipoVeiculo.Carro))
-                    Console.WriteLine($"Este é o nome: {carro.Nome}");
-                
-            }
-
-            if (listaDeVeiculos.Where(camionete => camionete.Tipo == TipoVeiculo.Camionete).ToList().Count > 0)
-            {
-                
-                Console.WriteLine("Lista de Camionete");
-                foreach (var camionete in listaDeVeiculos.Where(camionete => camionete.Tipo == TipoVeiculo.Camionete))
-                    Console.WriteLine($"Este é o nome: {camionete.Nome}");
-                
+                Console.WriteLine($"{error.Message}",
+                    Console.ForegroundColor = ConsoleColor.Red);
+                Console.Read();
             }
         }
-        public void DeletarVeiculo(string? veiculoEscolhido){
+        public void DeletarVeiculo(string? veiculoEscolhido) 
+        {
 
-                var veiculo = BancoDeDados.Veiculos.FirstOrDefault(veiculo =>veiculo.Nome == veiculoEscolhido);
-                BancoDeDados.Veiculos.RemoveAll(veiculo => veiculo.Nome == veiculoEscolhido);
-                 Console.WriteLine($"\nveiculo de {veiculo.Nome} removida com sucesso!",
+                if (BancoDeDados.MotosTriciclo.Count > 0)
+            { 
+                foreach (var motos in BancoDeDados.MotosTriciclo.ToList())
+                if (motos.Nome == veiculoEscolhido)
+                {
+                    var moto = BancoDeDados.MotosTriciclo.FirstOrDefault(moto => moto.Nome == veiculoEscolhido);
+                
+                    BancoDeDados.MotosTriciclo.RemoveAll(veiculo => moto.Nome == veiculoEscolhido);
+                    Console.WriteLine($"\nveiculo de {moto.Nome} removida com sucesso!",
                     Console.ForegroundColor = ConsoleColor.Blue);
+                }
+
+            }
+
+
+            if (BancoDeDados.Carros.Count > 0)
+            {
+                foreach (var carros in BancoDeDados.Carros.ToList())
+                    if (carros.Nome == veiculoEscolhido)
+                    {
+                        var carro = BancoDeDados.Carros.FirstOrDefault(carro => carro.Nome == veiculoEscolhido);
+                        if (carro.Nome == veiculoEscolhido)
+                        {
+                            BancoDeDados.Carros.RemoveAll(carro => carro.Nome == veiculoEscolhido);
+                            Console.WriteLine($"\nveiculo de {carro.Nome} removida com sucesso!",
+                            Console.ForegroundColor = ConsoleColor.Blue);
+                        }
+                }
+            }
+
+            if (BancoDeDados.Camionete.Count > 0)
+            {
+                foreach (var camionetes in BancoDeDados.Camionete.ToList())
+                    if (camionetes.Nome == veiculoEscolhido)
+                    {
+                        var camionete = BancoDeDados.Camionete.FirstOrDefault(camionete => camionete.Nome == veiculoEscolhido);
+                        if (camionete.Nome == veiculoEscolhido)
+                        {
+                            BancoDeDados.Camionete.RemoveAll(camionete => camionete.Nome == veiculoEscolhido);
+                            Console.WriteLine($"\nveiculo de {camionete.Nome} removida com sucesso!",
+                            Console.ForegroundColor = ConsoleColor.Blue);
+                        }
+                }
+            }
+                
 
         }
         public void AtualizarVeiculo(string? veiculoEscolhido)
         {
-
-            for (int i =0 ; i <BancoDeDados.Veiculos.Count; i++)
+            if (BancoDeDados.Camionete.Count > 0)
             {
-
-                if(BancoDeDados.Veiculos[i].Nome == veiculoEscolhido)
-                {
-                try{
-                    Console.Write($"O nome do titular é {BancoDeDados.Veiculos[i].Nome}. Entre com o novo nome do titular da veiculo: ");
-                        string? nome = Console.ReadLine();
-                        CompradorServicos.ValidaString(nome);
-
-                        BancoDeDados.Veiculos[i].Nome =nome;
-                }
-                catch(FormatException){
-
-                }
-                catch(Exception error){
-                    Console.WriteLine(error.Message,
-                            Console.ForegroundColor = ConsoleColor.Red);
-                        Console.Read();
-                }
-                }
+                foreach (var camionetes in BancoDeDados.Camionete.ToList())
+                    if (camionetes.Nome == veiculoEscolhido)
+                    {
+                        camionete.AletrarInformacoes(veiculoEscolhido);
+                    }
             }
-            
+            if (BancoDeDados.Carros.Count > 0)
+            {
+                foreach (var carros in BancoDeDados.Carros.ToList())
+                    if (carros.Nome == veiculoEscolhido)
+                    {
+                        carro.AletrarInformacoes(veiculoEscolhido);
+                    }
+            }
+            if (BancoDeDados.MotosTriciclo.Count > 0)
+            {
+                foreach (var motos in BancoDeDados.MotosTriciclo.ToList())
+                    if (motos.Nome == veiculoEscolhido)
+                    {
+                        motoTriciclo.AletrarInformacoes(veiculoEscolhido);
+                    }
+            }
+
         }
         public void CarrosVendidos(){
-            List<Veiculos> listaDeVeiculos =new();
-
-            foreach (var veiculo in BancoDeDados.Veiculos)
-             {
-               
-                listaDeVeiculos.Add(veiculo);
-             }
-             listaDeVeiculos = BancoDeDados.Veiculos;
-
-             Console.WriteLine("Lista de Veiculos Vendidos: ");
-
-                if(listaDeVeiculos.Where(veiculos=>veiculos.CPF != "00000000000").ToList().Count>0)
-                {
-                Console.WriteLine("Lista de Motos/Triciclos:");
-                foreach (var veiculo in listaDeVeiculos.Where(veiculos => veiculos.CPF != "00000000000"))
-             Console.WriteLine($"Este é o nome: {veiculo.Nome} CPF {veiculo.CPF}");  
-             }else{
-               Console.WriteLine("Não existe Veiculos Vendidos", Console.ForegroundColor=ConsoleColor.Red);
-             }
+            if (BancoDeDados.Camionete.Count > 0)
+            { camionete.VeiculosVendidos(); }
+            if (BancoDeDados.Carros.Count > 0)
+            { carro.VeiculosVendidos(); }
+            if (BancoDeDados.MotosTriciclo.Count > 0)
+            { motoTriciclo.VeiculosVendidos(); }
 
         }
         public void CarrosDisponiveis(){
 
-            List<Veiculos> listaDeVeiculos =new();
+            if (BancoDeDados.Camionete.Count > 0)
+            { camionete.VeiculosDisponiveis(); }
+            if (BancoDeDados.Carros.Count > 0)
+            { carro.VeiculosDisponiveis(); }
+            if (BancoDeDados.MotosTriciclo.Count > 0)
+            { motoTriciclo.VeiculosDisponiveis(); }
 
-            foreach (var veiculo in BancoDeDados.Veiculos)
-             {
-               
-                listaDeVeiculos.Add(veiculo);
-             }
-             listaDeVeiculos = BancoDeDados.Veiculos;
-
-             Console.WriteLine("Lista de Veiculos Vendidos: ");
-
-                if(listaDeVeiculos.Where(veiculos=>veiculos.CPF == "00000000000").ToList().Count>0)
-                {
-                Console.WriteLine("Lista de Motos/Triciclos:");
-                foreach (var veiculo in listaDeVeiculos.Where(veiculos => veiculos.CPF == "00000000000"))
-             Console.WriteLine($"Este é o nome: {veiculo.Nome} CPF {veiculo.CPF}");  
-             }else{
-               Console.WriteLine("Não existe Veiculos Disponiveis", Console.ForegroundColor=ConsoleColor.Red);
-             }
+            
         }
-        public void CarrosVendidosComMaiorValor(){}
-        public void CarrosVendidosComMenorValor(){} 
-
-        public void VenderVeiculo(string? veiculoEscolhido){
-                for (int i =0 ; i <BancoDeDados.Veiculos.Count; i++)
+        public void CarrosVendidosComMaiorValor()
+        {
+            if (BancoDeDados.MotosTriciclo.Count > 0)
             {
+                int? valor = 0;
+                string? nome = "";
+                foreach (var moto in BancoDeDados.MotosTriciclo)
 
-                if(BancoDeDados.Veiculos[i].Nome == veiculoEscolhido)
                 {
-                try{
-                    Console.Write($"Entre com o CPF do comprador do veiculo: ");
-                        string? CPF = Console.ReadLine();
-                        CompradorServicos.ValidaCPF(CPF);
 
-                        BancoDeDados.Veiculos[i].CPF =CPF;
-                        Console.WriteLine($"\nveiculo de {veiculoEscolhido} vendido com sucesso! para o CPF : {CPF}",
-                    Console.ForegroundColor = ConsoleColor.Blue);
+                    for (int i = 0; i < BancoDeDados.MotosTriciclo.Count; i++)
+                    {
+
+                        if (moto.CPF != "00000000000")
+                        {
+
+                            if (moto.Valor > valor)
+                            {
+                                valor = moto.Valor;
+                                nome = moto.Nome;
+                            }
+
+                        }
+                    }
+
                 }
-                catch(FormatException){
+                Console.WriteLine("\nMoto/Triciclo Vendido com Maior Valor:"); Console.WriteLine($"Moto de nome {nome} foi vendido a R${valor}");
+
+
+            }
+            if (BancoDeDados.Carros.Count > 0)
+            {
+                int? valor = 0;
+                string? nome = "";
+                foreach (var carro in BancoDeDados.Carros)
+
+                {
+
+                    for (int i = 0; i < BancoDeDados.Carros.Count; i++)
+                    {
+
+                        if (carro.CPF != "00000000000")
+                        {
+
+                            if (carro.Valor > valor)
+                            {
+                                valor = carro.Valor;
+                                nome = carro.Nome;
+                            }
+
+                        }
+                    }
+
+                }
+                Console.WriteLine("\nMoto/Triciclo Vendido com Maior Valor:"); Console.WriteLine($"Moto de nome {nome} foi vendido a R${valor}");
+
+
+            }
+            if (BancoDeDados.Camionete.Count > 0)
+            {
+                int? valor = 0;
+                string? nome = "";
+                foreach (var camionete in BancoDeDados.Camionete)
+
+                {
+
+                    for (int i = 0; i < BancoDeDados.Camionete.Count; i++)
+                    {
+
+                        if (camionete.CPF != "00000000000")
+                        {
+
+                            if (camionete.Valor > valor)
+                            {
+                                valor = camionete.Valor;
+                                nome = camionete.Nome;
+                            }
+
+                        }
+                    }
+
+                }
+                Console.WriteLine("\nMoto/Triciclo Vendido com Maior Valor:"); Console.WriteLine($"Moto de nome {nome} foi vendido a R${valor}");
+
+            }
+
+        }
+        public void CarrosVendidosComMenorValor()
+        {
+            if (BancoDeDados.MotosTriciclo.Count > 0)
+            {
+                int? valor = 9999999;
+                string? nome = "";
+                foreach (var moto in BancoDeDados.MotosTriciclo)
+
+                {
+
+                    for (int i = 0; i < BancoDeDados.MotosTriciclo.Count; i++)
+                    {
+
+                        if (moto.CPF != "00000000000")
+                        {
+
+                            if (moto.Valor < valor)
+                            {
+                                valor = moto.Valor;
+                                nome = moto.Nome;
+                            }
+
+                        }
+                    }
+
+                }
+                Console.WriteLine("\nMoto/Triciclo Vendido com Maior Valor:"); Console.WriteLine($"Moto de nome {nome} foi vendido a R${valor}");
+
+
+            }
+            if (BancoDeDados.Carros.Count > 0)
+            {
+                int? valor = 9999999;
+                string? nome = "";
+                foreach (var carro in BancoDeDados.Carros)
+
+                {
+
+                    for (int i = 0; i < BancoDeDados.Carros.Count; i++)
+                    {
+
+                        if (carro.CPF != "00000000000")
+                        {
+
+                            if (carro.Valor < valor)
+                            {
+                                valor = carro.Valor;
+                                nome = carro.Nome;
+                            }
+
+                        }
+                    }
+
+                }
+                Console.WriteLine("\nMoto/Triciclo Vendido com Maior Valor:"); Console.WriteLine($"Moto de nome {nome} foi vendido a R${valor}");
+
+
+            }
+            if (BancoDeDados.Camionete.Count > 0)
+            {
+                int? valor = 9999999;
+                string? nome = "";
+                foreach (var camionete in BancoDeDados.Camionete)
+
+                {
+
+                    for (int i = 0; i < BancoDeDados.Camionete.Count; i++)
+                    {
+
+                        if (camionete.CPF != "00000000000")
+                        {
+
+                            if (camionete.Valor < valor)
+                            {
+                                valor = camionete.Valor;
+                                nome = camionete.Nome;
+                            }
+
+                        }
+                    }
+
+                }
+                Console.WriteLine("\nMoto/Triciclo Vendido com Maior Valor:"); Console.WriteLine($"Moto de nome {nome} foi vendido a R${valor}");
+
+            }
+        } 
+        public void VenderVeiculo(string? veiculoEscolhido){
+            try
+            {
+                if (BancoDeDados.Camionete.Count > 0)
+                {
+                    foreach (var camionetes in BancoDeDados.Camionete.ToList())
+                        if (camionetes.Nome == veiculoEscolhido)
+                        {
+                            camionete.VenderVeiculo(veiculoEscolhido);
+                        }
+                }
+                if (BancoDeDados.Carros.Count > 0)
+                {
+                    foreach (var carros in BancoDeDados.Carros.ToList())
+                        if (carros.Nome == veiculoEscolhido)
+                        {
+                            carro.VenderVeiculo(veiculoEscolhido);
+                        }
+                }
+                if (BancoDeDados.MotosTriciclo.Count > 0)
+                {
+                    foreach (var motos in BancoDeDados.MotosTriciclo.ToList())
+                        if (motos.Nome == veiculoEscolhido)
+                        {
+                            motoTriciclo.VenderVeiculo(veiculoEscolhido);
+                        }
+                }
+
+            }
+            catch(FormatException){
 
                 }
                 catch(Exception error){
@@ -197,9 +411,9 @@ namespace Servicos
                         Console.Read();
                 }
                 }
-            }
+            
 
-        }    
+           
 
     }
 }

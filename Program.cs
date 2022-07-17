@@ -4,6 +4,7 @@ namespace DEVCar
 {
     class Program
     {
+             
         
         static void Main(string[] args)
         {
@@ -14,13 +15,7 @@ namespace DEVCar
             VeiculoServicos veiculos = new VeiculoServicos();
 
             while (opcao != "10")
-            {                
-                if (BancoDeDados.Veiculos.Count >0)
-                {
-                    NumeroChassis =BancoDeDados.Veiculos.Last().NumeroChassis +1;
-                }else{NumeroChassis= BancoDeDados.Veiculos.Count;}
-
-                
+            {                              
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("____________DEVCar____________");
@@ -41,14 +36,15 @@ namespace DEVCar
                 switch(opcao)
                 {
                     case "1":
-                       veiculos.CadastrarVeiculo(NumeroChassis);
+                       veiculos.CadastrarVeiculo();
                     break;
                     case "2":
                     Console.Clear();
-                    if (BancoDeDados.Veiculos.Count >0){
+                    if (BancoDeDados.MotosTriciclo.Count >0 || BancoDeDados.Carros.Count > 0|| BancoDeDados.Camionete.Count > 0)
+                        {
                         try{
                             veiculos.ListarVeiculos();
-                            Console.WriteLine("Selecione uma conta: ");
+                            Console.WriteLine("Selecione um veiculo: ");
                             VeiculoEscolhido = Console.ReadLine();
                             veiculos.DeletarVeiculo(VeiculoEscolhido);
                         }
@@ -63,7 +59,8 @@ namespace DEVCar
                     break;
                     case "3":
                     Console.Clear();
-                    if (BancoDeDados.Veiculos.Count >0){
+                    if (BancoDeDados.MotosTriciclo.Count > 0 || BancoDeDados.Carros.Count > 0 || BancoDeDados.Camionete.Count > 0)
+                        {
                         try{
                             veiculos.ListarVeiculos();
                             Console.WriteLine("Selecione um Veiculo: ");
@@ -82,26 +79,28 @@ namespace DEVCar
                     break;
                     case "4":
                     Console.Clear();
-                    if (BancoDeDados.Veiculos.Count >0)
-                    {
-                        try
+                        if(BancoDeDados.MotosTriciclo.Count > 0 || BancoDeDados.Carros.Count > 0 || BancoDeDados.Camionete.Count > 0)
                         {
-                            veiculos.ListarVeiculos();
-
-                        }
-                        catch(FormatException)
+                            try
+                            {
+                                veiculos.ListarVeiculos();
+                            }
+                            catch (FormatException)
+                            {
+                                Console.WriteLine("Formato não aceito. Tente novamente",
+                                Console.ForegroundColor = ConsoleColor.Red);
+                            }
+                        }else
                         {
-                            Console.WriteLine("Formato não aceito. Tente novamente",
-                            Console.ForegroundColor = ConsoleColor.Red);
+                            Console.WriteLine("Não existe Veiculos cadastrado", Console.ForegroundColor = ConsoleColor.Red);
                         }
-                    }else{
-                        Console.WriteLine("Não existe Veiculos cadastrado", Console.ForegroundColor=ConsoleColor.Red);
-                    }
+                        
+                       
                     Console.Read();
                     break;
                     case "5":
                     Console.Clear();
-                    if (BancoDeDados.Veiculos.Count >0)
+                    if (BancoDeDados.MotosTriciclo.Count > 0 || BancoDeDados.Carros.Count > 0 || BancoDeDados.Camionete.Count > 0)
                     {
                         try
                         {
@@ -121,7 +120,7 @@ namespace DEVCar
                     break;
                     case "6":
                     Console.Clear();
-                    if (BancoDeDados.Veiculos.Count >0)
+                    if (BancoDeDados.MotosTriciclo.Count > 0 || BancoDeDados.Carros.Count > 0 || BancoDeDados.Camionete.Count > 0)
                     {
                         try
                         {
@@ -140,14 +139,54 @@ namespace DEVCar
 
                     break;
                     case "7":
-                    break;
+                        Console.Clear();
+                        if (BancoDeDados.MotosTriciclo.Count > 0 || BancoDeDados.Carros.Count > 0 || BancoDeDados.Camionete.Count > 0)
+                        {
+                            try
+                            {
+                                
+                                veiculos.CarrosVendidosComMaiorValor();
+
+                            }
+                            catch (FormatException)
+                            {
+                                Console.WriteLine("Formato não aceito. Tente novamente",
+                                Console.ForegroundColor = ConsoleColor.Red);
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Não existe Veiculos cadastrado", Console.ForegroundColor = ConsoleColor.Red);
+                        }
+                        Console.Read();
+                        break;
                     case "8":
-                    break;
+                        Console.Clear();
+                        if (BancoDeDados.MotosTriciclo.Count > 0 || BancoDeDados.Carros.Count > 0 || BancoDeDados.Camionete.Count > 0)
+                        {
+                            try
+                            {
+                                veiculos.CarrosVendidosComMenorValor();
+
+                            }
+                            catch (FormatException)
+                            {
+                                Console.WriteLine("Formato não aceito. Tente novamente",
+                                Console.ForegroundColor = ConsoleColor.Red);
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Não existe Veiculos cadastrado", Console.ForegroundColor = ConsoleColor.Red);
+                        }
+                        Console.Read();
+                        break;
                     case "9":
                     Console.Clear();
-                    if (BancoDeDados.Veiculos.Count >0){
+                    if (BancoDeDados.MotosTriciclo.Count > 0 || BancoDeDados.Carros.Count > 0 || BancoDeDados.Camionete.Count > 0)
+                        {
                         try{
-                            veiculos.ListarVeiculos();
+                            veiculos.CarrosDisponiveis();
                             Console.WriteLine("Selecione um Veiculo: ");
                             VeiculoEscolhido = Console.ReadLine();
                             veiculos.VenderVeiculo(VeiculoEscolhido);
