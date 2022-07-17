@@ -1,11 +1,15 @@
 # DEVCar
 
-A montadora/revenda de veículos DEV-Car deseja automatizar todo o sistema de
+<p>A montadora/revenda de veículos DEV-Car deseja automatizar todo o sistema de
 armazenamento de informações referentes aos carros fabricados. O sistema deve conter os
-seguintes tipos de carros, cada um com suas características:
-● Moto/Triciclo
-○ Uma moto/triciclo possui como característica principal sua potência.
-○ Deve-se informar o total rodas da moto/triciclo.
+seguintes tipos de carros, cada um com suas características:</p>
+<ul>
+<li>● Moto/Triciclo
+<ul>
+<li>○ Uma moto/triciclo possui como característica principal sua potência.</li>
+<li>○ Deve-se informar o total rodas da moto/triciclo.</li>
+</li>
+</ul>
 ● Carro
 ○ Carro possui como características principais:
 ■ Total de portas.
@@ -20,6 +24,7 @@ seguintes tipos de carros, cada um com suas características:
 ■ Se será gasolina ou diesel.
 ○ Um detalhe importante é que o DEVCar só fabrica camionetes na corte Roxa.
 ■ Criar um teste unitário para validar a regra citada acima.
+</ul>
 Todos os veículos devem ser derivadas da classe Veículo, que possui os seguintes atributos e
 métodos:
 ● Veículo
