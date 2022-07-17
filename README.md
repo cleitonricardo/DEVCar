@@ -10,11 +10,13 @@ seguintes tipos de carros, cada um com suas características:</p>
 <li>○ Deve-se informar o total rodas da moto/triciclo.</li>
 </li>
 </ul>
-● Carro
-○ Carro possui como características principais:
-■ Total de portas.
-■ Se será flex ou somente gasolina.
-■ Potência (em cavalos).
+<li>● Carro
+<ul>○ Carro possui como características principais:
+<li>■ Total de portas.</li>
+<li>■ Se será flex ou somente gasolina.</li>
+<li>■ Potência (em cavalos).</li>
+</ul>
+</li>
 ● Camionete:
 ○ Carro possui como características principais:
 ■ Total de portas.
@@ -24,7 +26,7 @@ seguintes tipos de carros, cada um com suas características:</p>
 ■ Se será gasolina ou diesel.
 ○ Um detalhe importante é que o DEVCar só fabrica camionetes na corte Roxa.
 ■ Criar um teste unitário para validar a regra citada acima.
-</ul>
+</li>
 Todos os veículos devem ser derivadas da classe Veículo, que possui os seguintes atributos e
 métodos:
 ● Veículo
