@@ -42,25 +42,27 @@ repetir)</li>
 <li>○ Valor (Não pode ser um valor negativo).</li>
 <li>○ CPF do Comprador (quando cadastrado deve ficar em zero).</li>
 <li>○ Cor</li></ul>
-● Métodos
-○ Vender veículo
-○ Listar informações
-○ Alterar informações:
-■ Cor e valor
-O DEVCar também deseja manter um histórico das transferências que deverá armazenar (utilizar
-conceitos de composição):
-● Dados do Veículo
-● CPF do comprador
-● Valor
-● Data
-O sistema também deverá apresentar os seguintes relatórios:
-● Listar todos os carros. O usuário deverá informar quais veículos quais tipos de veículos
-deseja listar:
-○ Motos/Triciclo
-○ Carros
-○ Camionete
-○ Todos
-● Carros disponíveis
-● Carros vendidos
-● Carro vendido com o maior preço
-● Carro vendido com o menor preço
+<li>● Métodos</li>
+<ul><li>○ Vender veículo</li>
+<li>○ Listar informações</li>
+<li>○ Alterar informações:</li>
+<ul><li>■ Cor e valor</li></ul></ul>
+<p>O DEVCar também deseja manter um histórico das transferências que deverá armazenar (utilizar
+conceitos de composição):</p>
+<ul>
+<li>● Dados do Veículo</li>
+<li>● CPF do comprador</li>
+<li>● Valor</li>
+<li>● Data</li>
+</ul>
+<p>O sistema também deverá apresentar os seguintes relatórios:</p>
+<ul><li>● Listar todos os carros. O usuário deverá informar quais veículos quais tipos de veículos deseja listar:</li>
+<ul>
+<li>○ Motos/Triciclo</li>
+<li>○ Carros</li>
+<li>○ Camionete</li>
+<li>○ Todos</li></ul>
+<li>● Carros disponíveis</li>
+<li>● Carros vendidos</li>
+<li>● Carro vendido com o maior preço</li>
+<li>● Carro vendido com o menor preço</li>
