@@ -9,13 +9,15 @@ namespace Entidades
 
         public override void Cadastro()
         {
-
+           Random numAleatorio = new Random();
+           int valorInteiro = numAleatorio.Next();
+            
             try
             {
                 MotosTriciclo moto = new();
-                moto.NumeroChassis = 1;
+                moto.NumeroChassis = valorInteiro;
                 moto.Tipo = TipoVeiculo.MotosTriciclo;
-                Console.WriteLine($"O numero do Chassis será: {NumeroChassis}");
+                Console.WriteLine($"O numero do Chassis será: {moto.NumeroChassis}");
                 Console.Write("\nEntre com a data de fabricação :");
                 
                 moto.DataFabricacao =Console.ReadLine();
