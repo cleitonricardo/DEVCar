@@ -34,7 +34,7 @@ seguintes tipos de carros, cada um com suas características:</p>
 métodos:</p>
 <ul>● Veículo
 <ul><li>○ Atributos</li>
-<li>○ Número do chassi (o sistema deverá gerar de forma automática e não poderá
+<ul><li>○ Número do chassi (o sistema deverá gerar de forma automática e não poderá
 repetir)</li>
 <li>○ Data de Fabricação</li>
 <li>○ Nome</li>
