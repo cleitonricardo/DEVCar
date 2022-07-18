@@ -41,7 +41,7 @@ repetir)</li>
 <li>○ Placa (Placa não pode repetir para mais de um carro)</li>
 <li>○ Valor (Não pode ser um valor negativo).</li>
 <li>○ CPF do Comprador (quando cadastrado deve ficar em zero).</li>
-<li>○ Cor</li>
+<li>○ Cor</li></ul>
 ● Métodos
 ○ Vender veículo
 ○ Listar informações
