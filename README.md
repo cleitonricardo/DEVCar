@@ -26,18 +26,22 @@ seguintes tipos de carros, cada um com suas características:</p>
 ○ Um detalhe importante é que o DEVCar só fabrica camionetes na corte Roxa.
 <ul><li>■ Criar um teste unitário para validar a regra citada acima.
 </li>
-Todos os veículos devem ser derivadas da classe Veículo, que possui os seguintes atributos e
-métodos:
-● Veículo
-○ Atributos
-○ Número do chassi (o sistema deverá gerar de forma automática e não poderá
-repetir)
-○ Data de Fabricação
-○ Nome
-○ Placa (Placa não pode repetir para mais de um carro)
-○ Valor (Não pode ser um valor negativo).
-○ CPF do Comprador (quando cadastrado deve ficar em zero).
-○ Cor
+</ul>
+</ul>
+</ul>
+
+<p>Todos os veículos devem ser derivadas da classe Veículo, que possui os seguintes atributos e
+métodos:</p>
+<ul>● Veículo
+<ul><li>○ Atributos</li>
+<li>○ Número do chassi (o sistema deverá gerar de forma automática e não poderá
+repetir)</li>
+<li>○ Data de Fabricação</li>
+<li>○ Nome</li>
+<li>○ Placa (Placa não pode repetir para mais de um carro)</li>
+<li>○ Valor (Não pode ser um valor negativo).</li>
+<li>○ CPF do Comprador (quando cadastrado deve ficar em zero).</li>
+<li>○ Cor</li>
 ● Métodos
 ○ Vender veículo
 ○ Listar informações
